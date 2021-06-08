@@ -6,7 +6,22 @@ const onClickAdd = () => {
   const inputText = document.getElementById("add-text").value;
   //入力されたTODOを削除
   document.getElementById("add-text").value = "";
-  alert(inputText);
+
+  //divタグを生成
+  const divTag = document.createElement("div");
+  divTag.className = "list-row";
+  //console.log(divTag);
+
+  //liタグを生成
+  const liTag = document.createElement("li");
+  liTag.innerText = inputText;
+  // console.log(liTag);
+
+  //divタグの子要素としてliタグを設定
+  divTag.appendChild(liTag);
+
+  //ulタグの子要素としてdivタグを設定
+  document.getElementById("incomplete-list").appendChild(divTag);
 };
 
 document
