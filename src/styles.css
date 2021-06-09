@@ -33,7 +33,7 @@ li {
   border-radius: 8px;
 }
 
-.imcomplete-todo {
+.incomplete-todo {
   background: #c6ffe2;
   width: 400px;
   min-height: 200px;
@@ -43,7 +43,7 @@ li {
 }
 
 .complete-todo {
-  background: #ffffe0;
+  background: #ffe0f7;
   width: 400px;
   min-height: 200px;
   padding: 8px;
