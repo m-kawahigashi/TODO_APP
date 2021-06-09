@@ -10,12 +10,10 @@ const onClickAdd = () => {
   //divタグを生成
   const divTag = document.createElement("div");
   divTag.className = "list-row";
-  //console.log(divTag);
 
   //liタグを生成
   const liTag = document.createElement("li");
   liTag.innerText = inputText;
-  // console.log(liTag);
 
   //divタグの子要素としてliタグを設定
   divTag.appendChild(liTag);
