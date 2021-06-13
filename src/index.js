@@ -51,10 +51,8 @@ const onClickAdd = () => {
   //console.log(deleteButtonTag);
   //削除ボタン押下後、押下されたTODOを削除する
   deleteButtonTag.addEventListener("click", () => {
-    //ボタン押下されたTODO(divタグ)を取得
-    const deleteTarget = deleteButtonTag.parentNode;
     //TODO(divタグ)を削除
-    deleteTodo(deleteTarget);
+    deleteTodo(deleteButtonTag.parentNode);
   });
 
   //入力されたTODO・ボタンタグを追加する
