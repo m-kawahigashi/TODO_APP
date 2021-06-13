@@ -34,12 +34,33 @@ const onClickAdd = () => {
     const comLiTag = document.createElement("li");
     comLiTag.innerText = completeTodo;
     //戻すボタン生成
-    const returnButton = document.createElement("button");
-    returnButton.innerText = "戻す";
+    const returnButtonTag = document.createElement("button");
+    returnButtonTag.innerText = "戻す";
+    returnButtonTag.addEventListener("click", () => {
+      ///ボタン押下されたTODO(divタグ)を取得
+      const returnTarget = returnButtonTag.parentNode;
+
+      //TODOを削除
+      document.getElementById("complete-list").removeChild(returnTarget);
+
+      //戻すTODOを取得し、作成したliタグに追加する
+      const returnTodo = returnTarget.firstElementChild.innerText;
+      returnTarget.textContent = null;
+      const returnLiTag = document.createElement("li");
+      returnLiTag.innerText = returnTodo;
+
+      ////divタグに各子要素を追加
+      returnTarget.appendChild(returnLiTag);
+      returnTarget.appendChild(completeButtonTag);
+      returnTarget.appendChild(deleteButtonTag);
+
+      //TODOを戻す
+      document.getElementById("incomplete-list").appendChild(returnTarget);
+    });
 
     //divタグに各子要素を追加
     completeTarget.appendChild(comLiTag);
-    completeTarget.appendChild(returnButton);
+    completeTarget.appendChild(returnButtonTag);
 
     //完了したTODOにTODOを追加
     document.getElementById("complete-list").appendChild(completeTarget);
@@ -64,7 +85,7 @@ const onClickAdd = () => {
   document.getElementById("incomplete-list").appendChild(divTag);
 };
 
-//TODO削除処理の関数化
+//TODO削除処理
 const deleteTodo = (target) => {
   document.getElementById("incomplete-list").removeChild(target);
 };
