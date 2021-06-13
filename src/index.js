@@ -18,7 +18,32 @@ const onClickAdd = () => {
   //完了ボタンを生成
   const completeButtonTag = document.createElement("button");
   completeButtonTag.innerText = "完了";
-  //console.log(completeButtonTag);
+
+  //更新ボタン押下後、押下されたTODOを完了したTODOに移動する
+  completeButtonTag.addEventListener("click", () => {
+    //ボタン押下されたTODO(divタグ)を取得
+    const completeTarget = completeButtonTag.parentNode;
+    //TODO(divタグ)を削除
+    document.getElementById("incomplete-list").removeChild(completeTarget);
+
+    //TODO内容を取得
+    const completeTodo = completeTarget.firstElementChild.innerText;
+    //divタグを初期化
+    completeTarget.textContent = null;
+    //liタグを生成
+    const comLiTag = document.createElement("li");
+    comLiTag.innerText = completeTodo;
+    //戻すボタン生成
+    const returnButton = document.createElement("button");
+    returnButton.innerText = "戻す";
+
+    //divタグに各子要素を追加
+    completeTarget.appendChild(comLiTag);
+    completeTarget.appendChild(returnButton);
+
+    //完了したTODOにTODOを追加
+    document.getElementById("complete-list").appendChild(completeTarget);
+  });
 
   //削除ボタンを生成
   const deleteButtonTag = document.createElement("button");
