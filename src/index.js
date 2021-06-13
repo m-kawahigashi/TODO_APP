@@ -28,7 +28,7 @@ const onClickAdd = () => {
   deleteButtonTag.addEventListener("click", () => {
     //ボタン押下されたTODO(divタグ)を取得
     const deleteTarget = deleteButtonTag.parentNode;
-    //TODO(親要素)を削除
+    //TODO(divタグ)を削除
     document.getElementById("incomplete-list").removeChild(deleteTarget);
   });
 
