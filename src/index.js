@@ -24,7 +24,7 @@ const onClickAdd = () => {
     //ボタン押下されたTODO(divタグ)を取得
     const completeTarget = completeButtonTag.parentNode;
     //TODO(divタグ)を削除
-    document.getElementById("incomplete-list").removeChild(completeTarget);
+    deleteTodo(completeTarget);
 
     //TODO内容を取得
     const completeTodo = completeTarget.firstElementChild.innerText;
@@ -54,7 +54,7 @@ const onClickAdd = () => {
     //ボタン押下されたTODO(divタグ)を取得
     const deleteTarget = deleteButtonTag.parentNode;
     //TODO(divタグ)を削除
-    document.getElementById("incomplete-list").removeChild(deleteTarget);
+    deleteTodo(deleteTarget);
   });
 
   //入力されたTODO・ボタンタグを追加する
@@ -64,6 +64,11 @@ const onClickAdd = () => {
 
   //ulタグの子要素としてdivタグを設定
   document.getElementById("incomplete-list").appendChild(divTag);
+};
+
+//TODO削除処理の関数化
+const deleteTodo = (target) => {
+  document.getElementById("incomplete-list").removeChild(target);
 };
 
 //追加ボタン押下後イベント発火
